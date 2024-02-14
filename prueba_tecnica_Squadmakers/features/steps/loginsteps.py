@@ -4,18 +4,21 @@ from behave import given, when, then
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+from prueba_tecnica_Squadmakers.configurations.config import TestData
 
-@given('I am on the login page {url}')
-def step_init_page(context, url):
+
+@given('the login page')
+def step_init_page(context):
     context.driver = webdriver.Chrome()
-    context.driver.get(url)
+    context.driver.get(TestData.URL)
 
 
-@when('I enter my username "{user}" and my password "{password}"')
-def step_enter_user_password(context, user, password):
+@when('enter my username and password')
+def step_enter_user_password(context):
     username_input = context.driver.find_element(By.ID, "user-name")
     password_input = context.driver.find_element(By.ID, "password")
-
+    user = TestData.USERNAME
+    password = TestData.PASSWORD
     username_input.clear()
     username_input.send_keys(user)
     password_input.clear()

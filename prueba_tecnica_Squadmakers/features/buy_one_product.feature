@@ -1,8 +1,8 @@
 Feature: Buy one product
 
   Background:
-    Given I am on the login page https://www.saucedemo.com/
-    When I enter my username "standard_user" and my password "secret_sauce"
+    Given the login page
+    When enter my username and password
     And I click on the login button
     Then I should successfully log in
 
